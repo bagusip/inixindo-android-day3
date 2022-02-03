@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+
     <group
         android:id="@+id/group"
         android:checkableBehavior="single">
@@ -10,21 +11,30 @@
             android:title="Home"
             app:showAsAction="never"/>
 
-        <item
-            android:id="@+id/nav_profile"
-            android:icon="@drawable/profile"
-            android:title="Profile"
-            app:showAsAction="never"/>
-
-        <item
-            android:id="@+id/nav_contact_us"
-            android:icon="@drawable/contact"
-            android:title="Contact Us"
-            app:showAsAction="never"/>
-        <item
-            android:id="@+id/nav_about_us"
-            android:icon="@drawable/about"
-            android:title="About Us"
-            app:showAsAction="never"/>
     </group>
+
+    <item android:title="My Profile">
+        <menu>
+            <item
+                android:id="@+id/nav_profile"
+                android:icon="@drawable/profile"
+                android:title="Profile"
+                app:showAsAction="never"/>
+        </menu>
+    </item>
+
+    <item android:title="Connect">
+        <menu>
+            <item
+                android:id="@+id/nav_contact_us"
+                android:icon="@drawable/contact"
+                android:title="Contact Us"
+                app:showAsAction="never"/>
+            <item
+                android:id="@+id/nav_about_us"
+                android:icon="@drawable/about"
+                android:title="About Us"
+                app:showAsAction="never"/>
+        </menu>
+    </item>
 </menu>
