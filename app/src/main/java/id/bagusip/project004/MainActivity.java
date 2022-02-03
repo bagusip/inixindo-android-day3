@@ -74,6 +74,11 @@ public class MainActivity extends AppCompatActivity {
                         binding.drawer.closeDrawer(GravityCompat.START);
                         callFragment(fragment);
                         break;
+                    case R.id.nav_profile:
+                        fragment = new AboutUsFragment();
+                        getSupportActionBar().setTitle("Profile");
+                        binding.drawer.closeDrawer(GravityCompat.START);
+                        callFragment(fragment);
                 }
                 return true;
             }
