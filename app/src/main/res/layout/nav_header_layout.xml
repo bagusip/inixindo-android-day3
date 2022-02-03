@@ -32,9 +32,10 @@
                 android:paddingLeft="24dp">
 
                 <TextView
+                    android:id="@+id/textview_name"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
 
+                    android:layout_height="wrap_content"
                     android:text="Bagus Indiarto Pratomo"
                     android:textColor="@color/white"
                     android:textSize="24sp"
@@ -47,6 +48,18 @@
                     android:textColor="@color/white"
                     android:textSize="16sp"
                     android:textStyle="normal" />
+
+                <Button
+                    android:id="@+id/btn_go_web"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:text="My Website"
+                    android:textAlignment="center"
+                    android:textSize="12sp"
+                    android:textStyle="bold"/>
+
+
             </androidx.appcompat.widget.LinearLayoutCompat>
         </androidx.appcompat.widget.LinearLayoutCompat>
 

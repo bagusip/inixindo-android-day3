@@ -10,12 +10,22 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
+import android.media.Image;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
 
+import de.hdodenhof.circleimageview.CircleImageView;
 import id.bagusip.project004.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
@@ -23,6 +33,15 @@ public class MainActivity extends AppCompatActivity {
     private ActionBarDrawerToggle toggle;
     Toolbar toolbar;
     Fragment fragment = null;
+
+    TextView textview_name;
+
+    CircleImageView profilePicture;
+
+    private Button my_profile_button;
+
+//    NavigationView navigationView = findViewById(R.id.navView);
+
 
 
     //buat toolbar
@@ -59,6 +78,11 @@ public class MainActivity extends AppCompatActivity {
                 getSupportActionBar().setTitle("Profile");
                 binding.drawer.closeDrawer(GravityCompat.START);
                 callFragment(fragment);
+            case R.id.profile_picture:
+                fragment = new ProfileFragment();
+                getSupportActionBar().setTitle("Profile");
+                binding.drawer.closeDrawer(GravityCompat.START);
+                callFragment(fragment);
         }
         return super.onOptionsItemSelected(item);
     }
@@ -66,11 +90,24 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main);
+
         toolbar = findViewById(R.id.toolbar);
+
         setSupportActionBar(toolbar);
         binding = DataBindingUtil.setContentView(this,R.layout.activity_main);
         initView();
+
+//        my_profile_button = findViewById(R.id.my_profile_button);
+//
+//
+//        my_profile_button.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent myIntent = new Intent(MainActivity.this,ProfileFragment.class);
+//                startActivity(myIntent);
+//            }
+//        });
     }
 
     private void initView() {
@@ -129,6 +166,23 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
+
+        NavigationView navigationView = findViewById(R.id.navView);
+        View headerView = getLayoutInflater().inflate(R.layout.nav_header_layout,navigationView,false);
+        navigationView.addHeaderView(headerView);
+
+
+        Button btn_go_to_web = headerView.findViewById(R.id.btn_go_web);
+        btn_go_to_web.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getApplicationContext(), "", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse("https://bagusindiarto.com"));
+                startActivity(intent);
+            }
+        });
+
     }
 
     private void callFragment(Fragment fragment) {
