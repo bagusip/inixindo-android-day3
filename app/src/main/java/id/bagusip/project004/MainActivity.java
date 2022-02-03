@@ -3,6 +3,7 @@ package id.bagusip.project004;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
@@ -10,6 +11,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 
 import com.google.android.material.navigation.NavigationView;
@@ -19,11 +21,54 @@ import id.bagusip.project004.databinding.ActivityMainBinding;
 public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;
     private ActionBarDrawerToggle toggle;
+    Toolbar toolbar;
+    Fragment fragment = null;
+
+
+    //buat toolbar
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.navigation_item, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    //select toolbar with fragment
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.nav_home:
+                fragment = new HomeFragment();
+                getSupportActionBar().setTitle("Home");
+                binding.drawer.closeDrawer(GravityCompat.START);
+                callFragment(fragment);
+                break;
+            case R.id.nav_contact_us:
+                fragment = new ContactUsFragment();
+                getSupportActionBar().setTitle("Contact Us");
+                binding.drawer.closeDrawer(GravityCompat.START);
+                callFragment(fragment);
+                break;
+            case R.id.nav_about_us:
+                fragment = new AboutUsFragment();
+                getSupportActionBar().setTitle("About Us");
+                binding.drawer.closeDrawer(GravityCompat.START);
+                callFragment(fragment);
+                break;
+            case R.id.nav_profile:
+                fragment = new ProfileFragment();
+                getSupportActionBar().setTitle("Profile");
+                binding.drawer.closeDrawer(GravityCompat.START);
+                callFragment(fragment);
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 //        setContentView(R.layout.activity_main);
+        toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
         binding = DataBindingUtil.setContentView(this,R.layout.activity_main);
         initView();
     }
@@ -53,6 +98,7 @@ public class MainActivity extends AppCompatActivity {
         binding.navView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             Fragment fragment = null;
 
+            //option selected draw
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()){
@@ -75,7 +121,7 @@ public class MainActivity extends AppCompatActivity {
                         callFragment(fragment);
                         break;
                     case R.id.nav_profile:
-                        fragment = new AboutUsFragment();
+                        fragment = new ProfileFragment();
                         getSupportActionBar().setTitle("Profile");
                         binding.drawer.closeDrawer(GravityCompat.START);
                         callFragment(fragment);
