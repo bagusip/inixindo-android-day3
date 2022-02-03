@@ -1,18 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="bottom|center_vertical"
+    android:orientation="vertical"
     tools:context=".HomeFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Home Fragment"
-        android:textAlignment="center"
-        android:textColor="#80D8FF"
-        android:textColorHint="#84FFFF"
-        android:textSize="24sp" />
+        android:orientation="vertical">
 
-</FrameLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Selamat datang."
+            android:textAlignment="center"
+            android:textColor="#80D8FF"
+            android:textColorHint="#84FFFF"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Aplikasi ini dibuat untuk belajar pemrograman android."
+            android:textAlignment="center"
+            android:textColor="#80D8FF"
+            android:textColorHint="#84FFFF"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Khususnya untuk materi Fragment."
+            android:textAlignment="center"
+            android:textColor="#80D8FF"
+            android:textColorHint="#84FFFF"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Android Fragment adalah bagian yang dapat digunakan kembali dari antarmuka pengguna android activity yang digunakan untuk membuat UI yang dinamis dan fleksibel."
+            android:textAlignment="center"
+            android:textColor="#80D8FF"
+            android:textColorHint="#84FFFF"
+            android:textSize="24sp" />
+
+    </LinearLayout>
+
+</LinearLayout>

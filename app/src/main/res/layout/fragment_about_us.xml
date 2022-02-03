@@ -9,7 +9,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="About us Fragment"
+        android:text="ITDP Maybank Batch 2"
         android:textAlignment="center"
         android:textColor="#80D8FF"
         android:textSize="24sp" />
