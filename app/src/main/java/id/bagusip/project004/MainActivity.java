@@ -34,16 +34,6 @@ public class MainActivity extends AppCompatActivity {
     Toolbar toolbar;
     Fragment fragment = null;
 
-    TextView textview_name;
-
-    CircleImageView profilePicture;
-
-    private Button my_profile_button;
-
-//    NavigationView navigationView = findViewById(R.id.navView);
-
-
-
     //buat toolbar
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -54,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
     //select toolbar with fragment
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
             case R.id.nav_home:
                 fragment = new HomeFragment();
                 getSupportActionBar().setTitle("Home");
@@ -95,19 +85,9 @@ public class MainActivity extends AppCompatActivity {
         toolbar = findViewById(R.id.toolbar);
 
         setSupportActionBar(toolbar);
-        binding = DataBindingUtil.setContentView(this,R.layout.activity_main);
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         initView();
 
-//        my_profile_button = findViewById(R.id.my_profile_button);
-//
-//
-//        my_profile_button.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent myIntent = new Intent(MainActivity.this,ProfileFragment.class);
-//                startActivity(myIntent);
-//            }
-//        });
     }
 
     private void initView() {
@@ -123,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
         binding.navView.setCheckedItem(R.id.nav_home);
 
         //membuka drawer
-        toggle = new ActionBarDrawerToggle(this, binding.drawer, binding.toolbar,R.string.open,R.string.close);
+        toggle = new ActionBarDrawerToggle(this, binding.drawer, binding.toolbar, R.string.open, R.string.close);
 
         //drawer back button
         toggle.getDrawerArrowDrawable().setColor(getResources().getColor(R.color.white));
@@ -138,7 +118,7 @@ public class MainActivity extends AppCompatActivity {
             //option selected draw
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()){
+                switch (item.getItemId()) {
                     case R.id.nav_home:
                         fragment = new HomeFragment();
                         getSupportActionBar().setTitle("Home");
@@ -168,7 +148,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         NavigationView navigationView = findViewById(R.id.navView);
-        View headerView = getLayoutInflater().inflate(R.layout.nav_header_layout,navigationView,false);
+        View headerView = getLayoutInflater().inflate(R.layout.nav_header_layout, navigationView, false);
         navigationView.addHeaderView(headerView);
 
 
